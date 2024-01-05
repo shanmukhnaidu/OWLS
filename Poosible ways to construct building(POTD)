@@ -1,0 +1,29 @@
+class Solution{
+	public:
+	int TotalWays(int N)
+	{
+	    // Code here
+	       //Your code here
+            if(N==1)
+            {
+                return 4;
+            }
+            if(N==2)
+            {
+                return 9;
+            }
+            
+            long mod = 1000000007;
+            long x = 2; 
+            long y = 3;
+            long count = 0;
+            
+            for(int i = 3; i <= N; i++)
+            {
+                count = (x+y)%mod;
+                x=y;
+                y=count;
+            }
+            return (int) ((count*count)%mod);
+	}
+};

@@ -1,0 +1,12 @@
+      // Your code here        
+        int x = m^n;
+        int cnt =1;
+        while(x>0){
+            int temp = x&1;
+            if(temp == 1){
+                return cnt;
+            }
+            x = x>>1;
+            cnt++;
+        }
+        return -1;

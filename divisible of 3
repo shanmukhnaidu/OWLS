@@ -1,0 +1,9 @@
+int r=s[0]-'0';
+        for(int i=1;i<s.size();i++)
+        {
+            r=r*2+(s[i]-'0');
+            r%=3;
+        }
+        if(r)
+            return(0);
+        return(1);

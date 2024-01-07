@@ -1,0 +1,34 @@
+class Solution {
+public:
+    //[[2,6],[5,1],[3,10],[8,4]]
+    int areaOfMaxDiagonal(vector<vector<int>>& dimensions) {
+        int sum=0,maxi=0,k=0;
+        double sq=0;
+        for(int i=0;i<dimensions.size();i++){
+            sum=0;
+            for(int j=0;j<dimensions[0].size();j++){
+                sum+=dimensions[i][j]*dimensions[i][j];
+            }
+            sq=sum;
+            cout<<sum<<" ";
+            if(sq>maxi){
+                k=i;
+                maxi=sq;
+            }
+            else if(sq==maxi){
+                if(dimensions[k][0]*dimensions[k][1]>dimensions[i][0]*dimensions[i][1]){
+                    k=k;
+                    maxi=sq;
+                }
+                else{
+                    k=i;
+                    maxi=sq;
+                }
+            } 
+        }
+        return dimensions[k][0]*dimensions[k][1];
+        
+        
+        
+    }
+};

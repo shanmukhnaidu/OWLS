@@ -2,7 +2,7 @@ class Solution {
 public:
     void F(vector<int>&candidates,int target,vector<vector<int>>&ans,long long sum,vector<int>&v,int i)
     {
-        if(i>=candidates.size())
+        if(i==candidates.size())
         {
             if(sum==target)
             {
@@ -11,7 +11,7 @@ public:
             }
              return; 
         }
-        if(sum<=target)
+        if(sum<target)
         {
             v.push_back(candidates[i]);
             sum+=candidates[i];

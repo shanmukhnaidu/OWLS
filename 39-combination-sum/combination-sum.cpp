@@ -1,31 +1,30 @@
 class Solution {
 public:
-    void solve(int ind,vector<int>&arr,int sum,vector<int>&ds,vector<vector<int>>&ans){
-        if(sum<0) return ;
-        //  if(sum==0){
-        //         ans.push_back(ds);
-        //         return ;
-        // }
-        if(ind>=arr.size()){
-            if(sum==0){
-                ans.push_back(ds);
+    void F(vector<int>&candidates,int target,vector<vector<int>>&ans,long long sum,vector<int>&v,int i)
+    {
+        if(i>=candidates.size())
+        {
+            if(sum==target)
+            {
+                ans.push_back(v); 
+                
             }
-            return ;
+             return; 
         }
-        if(arr[ind]<=sum){
-            ds.push_back(arr[ind]);
-            solve(ind,arr,sum-arr[ind],ds,ans);
-            ds.pop_back();
+        if(sum<=target)
+        {
+            v.push_back(candidates[i]);
+            F(candidates,target,ans,sum+candidates[i],v,i);
+            v.pop_back();
+            
         }
-        solve(ind+1,arr,sum,ds,ans);
+        F(candidates,target,ans,sum,v,i+1);
+    }
 
-    } 
-    vector<vector<int>> combinationSum(vector<int>& arr, int target) {
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         vector<vector<int>>ans;
-        vector<int>ds;
-        int ind=0;
-        solve(ind,arr,target,ds,ans);
+        vector<int>v;
+        F(candidates,target,ans,0,v,0);
         return ans;
-
     }
 };

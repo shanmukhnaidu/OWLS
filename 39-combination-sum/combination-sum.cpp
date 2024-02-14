@@ -2,10 +2,10 @@ class Solution {
 public:
     void solve(int ind,vector<int>&arr,int sum,vector<int>&ds,vector<vector<int>>&ans){
         if(sum<0) return ;
-         if(sum==0){
-                ans.push_back(ds);
-                return ;
-        }
+        //  if(sum==0){
+        //         ans.push_back(ds);
+        //         return ;
+        // }
         if(ind>=arr.size()){
             if(sum==0){
                 ans.push_back(ds);

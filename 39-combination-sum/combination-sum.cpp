@@ -14,8 +14,10 @@ public:
         if(sum<=target)
         {
             v.push_back(candidates[i]);
-            F(candidates,target,ans,sum+candidates[i],v,i);
+            sum+=candidates[i];
+            F(candidates,target,ans,sum,v,i);
             v.pop_back();
+            sum-=candidates[i];
             
         }
         F(candidates,target,ans,sum,v,i+1);

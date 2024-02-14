@@ -7,7 +7,7 @@ public:
             if(sum==target)
             {
                 ans.push_back(v); 
-                
+                return ;
             }
              return; 
         }

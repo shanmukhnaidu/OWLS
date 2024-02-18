@@ -8,14 +8,22 @@ using namespace std;
 
 class Solution {
   public:
-    void DFS(int i,vector<int>adjl[],int vis[])
+    void BFS(int i,vector<int>adjl[],int vis[])
     {
+        queue<int>q;
+        q.push(i);
         vis[i]=1;
-        for(auto it:adjl[i])
+        while(!q.empty())
         {
-            if(!vis[it])
+            int top=q.front();
+            q.pop();
+            for(auto it:adjl[top])
             {
-                DFS(it,adjl,vis);
+                if(!vis[it])
+                {
+                    vis[it]=1;
+                    q.push(it);
+                }
             }
         }
     }
@@ -36,11 +44,12 @@ class Solution {
         }
         int vis[V]={0};
         int c=0;
+        // queue<int>q;
         for(int i=0;i<V;i++)
         {
             if(!vis[i]){
                 c++;
-                DFS(i,adjl,vis);
+                BFS(i,adjl,vis);
             }
         }
         return c;

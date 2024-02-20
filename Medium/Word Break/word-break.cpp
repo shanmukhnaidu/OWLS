@@ -14,7 +14,7 @@ using namespace std;
 class Solution
 {
 public:
-    int F(int ind,string &s,map<string,int>&mp)
+     int F(int ind,string &s,map<string,int>&mp)
     {
         if(ind==s.size()) return 1;
         int c=0;

@@ -11,7 +11,7 @@ public:
         int n=s.length();
         string x=string(o-1,'1');
         string y=string(z,'0');
-        string ans=x+y;
-        return ans+'1';
+        // string ans=x+y;
+        return x+y+'1';
     }
 };

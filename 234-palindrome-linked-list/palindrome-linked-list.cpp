@@ -12,16 +12,15 @@ class Solution {
 public:
     bool isPalindrome(ListNode* head) {
        ListNode* temp=head;
-       string x="";
+       string s;
        while(temp)
        {
-         char s=char(temp->val);
-         x+=s;
+         s+=temp->val;
          temp=temp->next;
-       } 
-       string p=x;
-       reverse(x.begin(),x.end());
-       if(x==p) return true;
+       }
+       string p=s;
+       reverse(s.begin(),s.end());
+       if(s==p) return true;
        return false;
     }
 };

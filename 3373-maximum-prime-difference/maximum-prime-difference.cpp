@@ -6,7 +6,7 @@ public:
         arr[0]=0;
         arr[1] = 0;
         arr[2] = 1;
-        seive();
+        // seive();
     }
     void seive()
     {

@@ -1,6 +1,6 @@
 class Solution {
 public:
-     const int n = 101;
+      int n = 101;
     vector<int>arr;
     Solution() : arr(n, 1) {
         arr[0]=0;
@@ -22,6 +22,7 @@ public:
         }
     }
     int maximumPrimeDifference(vector<int>& nums) {
+        // int n=101;
         seive();
         int i=0;
         int j=nums.size()-1;

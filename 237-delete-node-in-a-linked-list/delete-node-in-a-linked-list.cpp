@@ -14,8 +14,8 @@ public:
         // node->val=t->val;
         // node->next=t->next;
         // free(t);
-        ListNode* temp=node->next;
+        // ListNode* temp=node->next;
         *node=*(node->next);
-        delete temp;
+        // delete temp;
     }
 };

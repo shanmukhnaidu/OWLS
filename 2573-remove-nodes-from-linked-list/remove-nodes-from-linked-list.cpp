@@ -11,37 +11,42 @@
 class Solution {
 public:
     ListNode* removeNodes(ListNode* head) {
-        vector<int>v;
+        stack<int>st;
         ListNode* temp=head;
+        st.push(temp->val);
+        temp=temp->next;
         while(temp)
         {
-            v.push_back(temp->val);
-            temp=temp->next;
-        }
-        int maxx=v[v.size()-1];
-        for(int i=v.size()-1;i>=0;i--)
-        {
-            if(v[i]>maxx)maxx=v[i];
-            while(maxx>v[i] and i>=0)
+            if((temp->val)>st.top())
             {
-                v[i]=-1;
-                if(i!=0)i--;
-                else break;
+                while(!st.empty() and st.top()<temp->val)
+                {
+                    st.pop();
+                }
+                st.push(temp->val);
+                temp=temp->next;
             }
-            if(i>=0 and v[i]>maxx)maxx=v[i];
-        } 
-        for(auto it:v)cout<<it<<" ";
-        ListNode* t=new ListNode(-1);
-        ListNode* tt=t;
+            else
+            {
+                st.push(temp->val);
+                temp=temp->next;
+            }
+        }
+        vector<int>v;
+        while(!st.empty())
+        {
+            v.push_back(st.top());
+            st.pop();
+        }
+        reverse(v.begin(),v.end());
+        ListNode* dum=new ListNode(-1);
+        ListNode* curr=dum;
         for(auto it:v)
         {
-            if(it!=-1)
-            {
-                ListNode* ne=new ListNode(it);
-                tt->next=ne;
-                tt=ne;
-            }
+            ListNode* ne=new ListNode(it);
+            curr->next=ne;
+            curr=ne;
         }
-        return t->next;
+        return dum->next;
     }
 };

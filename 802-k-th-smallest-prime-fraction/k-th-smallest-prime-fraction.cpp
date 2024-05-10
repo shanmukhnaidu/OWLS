@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> kthSmallestPrimeFraction(vector<int>& arr, int k) {
         // map<double,pair<int,int>>mp;
-        priority_queue<pair<double,pair<int,int>>,vector<pair<double,pair<int,int>>>,greater<>>q;
+        priority_queue<pair<double,pair<int,int>>,vector<pair<double,pair<int,int>>>,greater<pair<double,pair<int,int>>>>q;
         int n=arr.size();
         for(int i=0;i<n;i++)
         {
